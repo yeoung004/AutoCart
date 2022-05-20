@@ -1,0 +1,39 @@
+/* 통계 */
+em { font-style: normal; }
+/* Common Sprite Images */
+.chart-mask,
+.chart-male,
+.chart-female{background-image:url(http://cfile8.uf.tistory.com/image/2224F3375832C6D91F0A83);
+    no-repeat;}
+.chart-box-wrap{padding:31px 0 42px;background:url(http://cfile5.uf.tistory.com/image/2270834358321490110214); 
+    repeat-x;text-align:center;}
+.chart-box-inner{display:inline-block;vertical-align:top}
+.chart-box-inner:after{display:block;clear:both;content:''}
+.chart-progress{position:relative;float:left;margin-left:28px;width:32px;height:130px}
+.chart-progress:first-child{margin-left:0}
+.chart-progressIn{position:absolute;bottom:0;left:0;right:0;background:#d9dee3}
+.chart-percent{position:absolute;left:0;text-align:center;white-space:nowrap;font-size:14px;font-weight:bold}
+.chart-percent.chart-zero{color:#898a8a!important}
+.chart-target{position:absolute;left:0;text-align:center;white-space:nowrap;font-size:12px;color:#353535}
+.chart-mask{position:absolute;bottom:0;left:0;width:100%;height:127px}
+.chart-sex, .chart-age{float:left}
+.chart-age{margin-left:60px}
+.chart-male{width:51px;height:125px;margin:5px 0 0 0;background-position:0 0} /* 부모 박스에 회색(디폴트) 백그라운드 정의 */
+.chart-male .chart-progressIn{bottom:1px;left:1px;right:1px;background:#2db9c2}
+.chart-male .chart-percent{color:#2db9c2}
+.chart-male .chart-mask{background-position:-60px 0} /* 자식 박스모델에 뚫린 이미지(백그라운드) 정의 */
+.chart-female{width:58px;height:125px;margin:5px 0 0 11px;background-position:-120px 0} /* 부모 박스에 회색(디폴트) 백그라운드 정의 */
+.chart-female .chart-progressIn{bottom:1px;left:1px;right:1px;background:#ef4c3b}
+.chart-female .chart-percent{color:#ef4c3b}
+.chart-female .chart-mask{background-position:-190px 0} /* 자식 박스모델에 뚫린 이미지(백그라운드) 정의 */
+.chart-sex .chart-percent{top:-25px;width:100%}
+.chart-sex .chart-target{bottom:-25px;width:100%}
+.chart-age .chart-percent{top:-18px;width:40px;margin-left:-5px}
+.chart-age .chart-target{bottom:-24px;width:100%}
+.chart-progress-100 .chart-progressIn,
+.chart-progress-top .chart-progressIn{background:#7e44ae}
+.chart-progress-100 .chart-percent,
+.chart-progress-top .chart-percent{color:#7e44ae}
+.chart-progress-100 .chart-percent{top:-20px}
+.chart-progress-0 .chart-percent{color:#898a8a}
+.chart-progress-lower .chart-percent{color:#717172}

@@ -1,0 +1,59 @@
+1. 회원가입 페이지 html 추가 
+
+<!-- Scripts -->
+	<script>
+		function idCheck() {
+
+			var id = document.getElementById("input_id");
+
+			$.ajax({ // Jquery작성시 $사용
+				type : "post", //요청 방식
+				url : "idCheckService", //요청할 서버페이지 지정
+				data : {
+					id : id.value
+				}, //서버에 보낼 데이터가 있을 때 필요{네임 값:데이터 값}
+				dataType : "text", //응답받을 방식
+				success : function(data) { //서버페이지와 통신에 성공한 후의 행동, function괄호 안에 서블릿 값 받음
+					if (data == "true") { //서블릿에서 보내준 true는 문자열로 받음(boolean 아님)
+						alert("존재하는 아이디입니다");
+					} else {
+						alert("회원가입 가능한 아이디입니다.");
+					}
+				},
+				error : function() { //서버페이지와 통신에 실패한 후의 행동
+					//alert("통신실패")
+				}
+			})
+		}
+	</script>
+
+	
+
+
+2. DAO에 추가할 메서드 
+	
+		public boolean memberSelect(String id) {
+		boolean check = true;
+		try {
+			getConn();
+
+			String sql = "select * from MBR where id = ?";
+
+			pst = conn.prepareStatement(sql);
+
+			pst.setString(1, id); // 물음표에 대입할 변수 지정
+
+			ResultSet rs = pst.executeQuery();
+		
+			if (rs.next()) { 
+				check = true;
+			}else {
+				check = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return check;
+	}
